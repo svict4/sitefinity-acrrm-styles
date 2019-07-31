@@ -1,0 +1,547 @@
+/**
+ * Basic typography style for copy text
+ */
+body {
+  color: $color-text;
+  font-family: $fontRegular;
+  @include fluid-type(16px, 18px);
+  line-height: 1.66666em;
+
+  @include only($nav-unavailable) {
+    .nav-device-open & {
+        position: static !important;
+    } 
+  }
+  
+}
+
+b,
+strong {
+  font-weight: 400;
+  font-family: $fontBold;
+}
+
+
+// Content
+//
+// An example of content with italics, bold, and links mixed in.
+//
+// Markup:
+//<div class="sfContentBlock">
+//Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+//<i>Vestibulum efficitur</i>, eros finibus porttitor bibendum, <strong>augue sapien consequat nulla</strong>, non fringilla erat nulla ac quam. 
+//<a href="#">Aenean efficitur sollicitudin cursus</a>. 
+//Cras eu varius eros. Nulla ac faucibus libero, vel viverra turpis. Duis at imperdiet nibh. 
+//Maecenas consequat venenatis augue, id sagittis purus vehicula sed. Etiam metus mi, faucibus at elementum et, laoreet a sapien.
+//</div>
+//
+// Styleguide Base.Style guide.Content
+
+a {
+  &:hover, 
+  &:focus { color: inherit; }
+}
+
+// Headings
+//
+// Headings used in content block
+//
+// Markup:
+//<h1 class="alpha">Heading 1 - Alpha</h1>
+//<h2 class="beta">Heading 2 - Beta</h2>
+//<h3 class="gamma">Heading 3 - Gamma</h3>
+//<h4 class="delta">Heading 4 - Delta</h4>
+//<h5 class="epsilon">Heading 5 - Epsilon</h5>
+//<h5 class="zeta">Heading 6 - Zeta</h5>
+//
+// Styleguide Base.Style guide.Headings
+
+.greek-base {
+    margin: 0 0 0.5em;
+    line-height: 1.5em;
+    margin-bottom: 0.8em;
+    font-weight: 400;
+    font-family: $fontBold;
+    color: $color-primary-1;
+
+    .bg-primary-1 & {
+        color: #fff;
+    }
+
+    &[href], 
+    a { 
+        color: $color-primary-1;
+        text-decoration: none;
+
+        &:hover,
+        &:focus { color: $color-secondary-1; text-decoration: none; } 
+
+        .bg-primary-1 & {
+            color: #fff;
+
+            &:hover,
+            &:focus { color: $color-tertiary-1; } 
+        }
+    }
+}
+
+a.greek-base {
+    display: inline-block;
+}
+
+//%alpha,
+.alpha,
+.fauxH1,
+h1.m-dynamicTitle {
+    @extend .greek-base;
+    @include fluid-type($alpha-MinFontSize, $alpha-MaxFontSize);
+    position: relative;
+    line-height: 1em;
+    margin-bottom: 0.5em;
+}
+
+.fauxH1 { display: none; }
+
+//%beta,
+.beta {
+    @extend .greek-base;
+    line-height: 1.1em;
+    margin-bottom: 0.6em;
+
+    @include fluid-type($beta-MinFontSize, $beta-MaxFontSize);
+}
+
+//%gamma,
+.gamma {
+    @extend .greek-base;
+    margin-bottom: 0.7em;
+    line-height: 1.2em;
+
+    @include fluid-type($gamma-MinFontSize, $gamma-MaxFontSize);
+}
+
+//%delta,
+.delta {
+    @extend .greek-base;
+    margin-bottom: 0.8em;
+    line-height: 1.3em;
+
+    @include fluid-type($delta-MinFontSize, $delta-MaxFontSize);
+}
+
+.epsilon {
+    @extend .greek-base;
+    margin-bottom: 0.9em;
+    line-height: 1.4em;
+
+    @include fluid-type($epsilon-MinFontSize, $epsilon-MaxFontSize);
+}
+
+.zeta {
+    @extend .greek-base;
+    margin-bottom: 1em;
+    line-height: 1.5em;
+
+    @include fluid-type($zeta-MinFontSize, $zeta-MaxFontSize);
+}
+
+ol li, 
+ul li { list-style: none; }
+
+.link {
+    color: $color-secondary-1;
+    text-decoration: underline;
+    outline: 0;
+
+    .sfContentBlock & { text-decoration: underline; }
+
+    &:hover, 
+    &:focus { color: $color-primary-1;} 
+
+    .bg-primary-1 & {
+        color: $color-tertiary-1;
+
+        &:hover, 
+        &:focus {
+            color: $color-primary-1;
+        }
+    }
+}
+
+//buttons
+.btn {
+  white-space: normal;
+}
+
+// List Unordered
+//
+// Lists: unordered
+//
+// Markup:
+//<div class="sfContentBlock">
+//<ul>
+//    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+//    <li>Nunc eu enim vel felis ultrices venenatis ac maximus augue. Phasellus molestie magna vitae semper ultrices.
+//        <ul>
+//            <li>Quisque in neque non neque blandit condimentum hendrerit quis neque. Sed neque est, placerat et laoreet et, mollis et neque.</li>
+//            <li>Donec id nisl a odio pellentesque faucibus.</li>
+//            <li>Nullam ultricies leo quis lacus cursus tempor. Proin id justo quis mauris vulputate volutpat.</li>
+//        </ul>
+//    </li>
+//    <li>Mauris id urna neque.</li>
+//    <li>Nam nec interdum nunc, id condimentum purus. Etiam interdum dignissim sapien iaculis tristique.</li>
+//</ul>
+//</div>
+//
+// Styleguide Base.Style guide.List Unordered
+
+// List Ordered
+//
+// Lists: Ordered
+//
+// Markup:
+//<div class="sfContentBlock">
+//<ol>
+//    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+//    <li>Nunc eu enim vel felis ultrices venenatis ac maximus augue. Phasellus molestie magna vitae semper ultrices.
+//        <ol>
+//            <li>Quisque in neque non neque blandit condimentum hendrerit quis neque. Sed neque est, placerat et laoreet et, mollis et neque.</li>
+//            <li>Donec id nisl a odio pellentesque faucibus.</li>
+//            <li>Nullam ultricies leo quis lacus cursus tempor. Proin id justo quis mauris vulputate volutpat.</li>
+//        </ol>
+//    </li>
+//    <li>Mauris id urna neque.</li>
+//    <li>Nam nec interdum nunc, id condimentum purus. Etiam interdum dignissim sapien iaculis tristique.</li>
+//</ol>
+//</div>
+//
+// Styleguide Base.Style guide.List Ordered
+
+.sfContentBlock {
+	&:before,
+    &:after { content: ""; display: table; clear: both; }
+}
+
+ul, 
+ol {
+    padding-left: 0;
+}
+
+//----------------------------------------------------------------------------
+// consistent client ediable content
+.sfContentBlock,
+.sfreContentArea,
+.reContentArea {
+	word-break: break-word; // break long links up
+
+    //To ensure long images don't break out of IE8
+    .lt-ie9 & { overflow: hidden; }
+
+	// images in content block
+	img {
+        margin-bottom: 30px;
+        max-width: 100%;
+        max-height: 100%;
+
+        &[style*="float: left"] {
+            @include only(smlz) {
+                margin-right: 30px;
+            }
+        }
+
+        &[style="margin-left: auto; margin-right: auto"] {
+            clear: both;
+        }
+
+        &[style*="float: right"] {
+            @include only(smlz) {
+                margin-left: 30px;
+            }
+        }
+
+        @include only(x) {
+            &[style*="float: left"], 
+            &[style*="float: right"] {
+                float: none !important;
+                display: block;
+            }
+        }
+
+        @include only(smlz) {
+            &[style*="float: left"], 
+            &[style*="float: right"] {
+                max-width: calc(50% - 15px);
+            }
+        }
+    }
+
+	// build headings, assuming the map
+	h1 { @extend .alpha;  }
+
+	h2 {
+		@extend .beta; 
+	}
+
+	h3 { @extend .gamma; }
+
+	h4 { @extend .delta; }
+
+    h5 { @extend .epsilon; }
+
+    //<a/>s are defined already as defaults
+	.intro {
+		color: #363636;
+	}
+
+	a {
+		@extend .link;
+	}
+
+	ul,
+	ol {
+		margin: 0 0 1.5em 25px;
+        padding: 0;
+
+		> li {
+            margin-bottom: 10px;
+		}
+
+		ol > li { list-style: decimal outside; }
+
+        ul, 
+        ol { margin-top: 15px; margin-bottom: 0; padding-top: 0; }
+	}
+
+	//restore !lists
+	ul {
+		//fancy lists
+		> li {
+            list-style: disc outside;
+
+			//fallback for derps
+			.lt-ie8 &,
+			.no-generatedcontent & { list-style: disc outside; }
+		}
+	}
+
+	ol {
+		counter-reset: numbers; // reset on the <ol/> so we can have nested if needed
+
+        ol {  
+            > li { list-style: lower-alpha outside; }
+        }
+
+		> li {
+            list-style: decimal outside;
+
+			//fallback for derps
+			.lt-ie8 &,
+			.no-generatedcontent & { list-style: decimal outside; }
+		}
+	}
+
+	.button { margin-bottom: 15px; }
+
+	dt {
+		margin-bottom: 10px;
+		padding-bottom: 2px;
+		font-size: 1.23077em;
+	}
+
+	dd {
+		margin: 0 0 1em;
+	}
+}//end main content
+
+.sfreContentArea { padding: 5px; }
+
+.reContentArea:before, 
+.reContentArea:after { content: none; display: initial; clear: initial;  }
+
+.emphasis {
+    @include fluid-type(20px, 26px);
+    line-height: 1.7em;
+    font-family: $fontBold;
+    color: $color-secondary-1;
+    margin-bottom: 30px;
+}
+
+
+// Blockquote
+//
+// Quotation styling
+//
+// Markup:
+//<blockquote>Nulla at enim in lacus venenatis bibendum. Integer massa erat, viverra id feugiat sed, imperdiet nec nunc. Duis at est eget quam sagittis egestas.
+//    <cite>Citation</cite>
+//</blockquote>
+//
+// Styleguide Components.Blockquote
+
+.sfContentBlock blockquote,
+blockquote.blockquote-fancy, 
+.blockquote-cols {  
+    position: relative;
+
+    &:before {
+        content: "";
+        background: $color-quinary-1;
+        position: absolute;
+        top: 0px; 
+        left: 0px;
+        bottom: 0px;
+        right: 45px;
+        z-index: -1;
+
+        @include only(sm) {
+            right: 120px;
+        }
+
+        @include only(lz) {
+            right: 240px;
+        }
+    }
+}
+
+.sfContentBlock blockquote,
+blockquote.blockquote-fancy { 
+    
+    max-width: 840px;
+    padding: 30px 0 30px 45px;
+    margin-bottom: 30px;
+
+    @include only(sm) {
+        padding: 45px 60px;
+    }
+
+    @include only(lz) {
+        padding: 90px 120px;
+    }
+}
+
+blockquote.blockquote-fancy .blockquote-text,
+.sfContentBlock blockquote {
+    @include fluid-type(16px, 30px);
+    color: $color-secondary-1;
+    font-family: $fontBold;
+    line-height: 1.7em;
+}
+
+blockquote.blockquote-fancy {
+    .blockquote-text {
+        margin-bottom: 20px;
+    }
+
+    .blockquote-author,
+    .blockquote-details {
+        @include fluid-type(14px, 16px);
+        color: $color-primary-1;
+        line-height: 1.25em;
+    }
+}
+
+.blockquote-cols {
+    &:before {
+        top: 45px; 
+        left: -300%;
+        bottom: 0px;
+        right: calc(50% - 60px - 60px);
+
+        @include only(xs) {
+            left: -15px;
+        }
+
+        @include only(m) {
+            right: calc(50% - 30px - 60px);
+        }
+
+        @include only(lz) {
+            right: calc(50% - 60px - 60px);
+        }
+
+        @include only(z) {
+            top: 70px; 
+        }
+    }
+
+    @include only(xs) {
+        .blockquote-col-img {
+            margin-bottom: 30px;
+        }
+    }
+
+    @include only(m) {
+        .blockquote-col-img {
+            padding-right: 30px;
+        }
+
+        .blockquote-col-text {
+            padding-left: 30px;
+        }
+    }
+
+    @include only(lz) {
+        .blockquote-col-img {
+            padding-right: 60px;
+        }
+
+        .blockquote-col-text {
+            padding-left: 60px;
+        }
+    }
+
+    .blockquote-col-text {    
+        @include only(xs) {
+            padding-bottom: 30px;
+        }
+
+        @include only(ml) {
+            padding-top: 90px;
+            padding-bottom: 90px;
+        }
+    
+        @include only(z) {
+            padding-top: 140px;
+            padding-bottom: 140px;
+        }
+    }
+
+    
+}
+
+
+// Content on different backgrounds
+//
+// An example of content with italics, bold, and links mixed in, on different backgrounds.
+//
+// Markup:
+//<div class="bg-primary-1 container tb-padding">
+//<div class="sfContentBlock">
+//<h1>Heading 1</h1>
+//<h2>Heading 2</h2>
+//<h3>Heading 3</h3>
+//<h4>Heading 4</h4>
+//<h5>Heading 5</h5>
+//Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+//<i>Vestibulum efficitur</i>, eros finibus porttitor bibendum, <strong>augue sapien consequat nulla</strong>, non fringilla erat nulla ac quam. 
+//<a href="#">Aenean efficitur sollicitudin cursus</a>. 
+//Cras eu varius eros. Nulla ac faucibus libero, vel viverra turpis. Duis at imperdiet nibh. 
+//Maecenas consequat venenatis augue, id sagittis purus vehicula sed. Etiam metus mi, faucibus at elementum et, laoreet a sapien.
+//</div>
+//</div>
+//<div class="bg-secondary-1 container tb-padding">
+//<div class="sfContentBlock">
+//<h1>Heading 1</h1>
+//<h2>Heading 2</h2>
+//<h3>Heading 3</h3>
+//<h4>Heading 4</h4>
+//<h5>Heading 5</h5>
+//Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+//<i>Vestibulum efficitur</i>, eros finibus porttitor bibendum, <strong>augue sapien consequat nulla</strong>, non fringilla erat nulla ac quam. 
+//<a href="#">Aenean efficitur sollicitudin cursus</a>. 
+//Cras eu varius eros. Nulla ac faucibus libero, vel viverra turpis. Duis at imperdiet nibh. 
+//Maecenas consequat venenatis augue, id sagittis purus vehicula sed. Etiam metus mi, faucibus at elementum et, laoreet a sapien.
+//</div>
+//</div>
+//
+// Styleguide Base.Style guide.headings-backgrounds

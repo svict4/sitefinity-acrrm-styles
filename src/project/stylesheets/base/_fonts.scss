@@ -1,0 +1,71 @@
+// -----------------------------------------------------------------------------
+// This file contains all @font-face declarations, if any.
+// -----------------------------------------------------------------------------
+
+$fontLocation: '/ResourcePackages/Proforma/assets/src/fonts/';
+
+// @font-face {
+//     font-family: 'archiathin';
+//     src: url('#{$fontLocation}01.Archia-Thin-webfont/archia-thin-webfont.eot');
+//     src: url('#{$fontLocation}01.Archia-Thin-webfont/archia-thin-webfont.eot?#iefix') format('embedded-opentype'),
+//          url('#{$fontLocation}01.Archia-Thin-webfont/archia-thin-webfont.woff2') format('woff2'),
+//          url('#{$fontLocation}01.Archia-Thin-webfont/archia-thin-webfont.woff') format('woff'),
+//          url('#{$fontLocation}01.Archia-Thin-webfont/archia-thin-webfont.ttf') format('truetype');
+//     font-weight: normal;
+//     font-style: normal;
+// }
+
+// @font-face {
+//     font-family: 'archialight';
+//     src: url('#{$fontLocation}02.Archia-Light-webfont/archia-light-webfont.eot');
+//     src: url('#{$fontLocation}02.Archia-Light-webfont/archia-light-webfont.eot?#iefix') format('embedded-opentype'),
+//          url('#{$fontLocation}02.Archia-Light-webfont/archia-light-webfont.woff2') format('woff2'),
+//          url('#{$fontLocation}02.Archia-Light-webfont/archia-light-webfont.woff') format('woff'),
+//          url('#{$fontLocation}02.Archia-Light-webfont/archia-light-webfont.ttf') format('truetype');
+//     font-weight: normal;
+//     font-style: normal;
+// }
+
+@font-face {
+    font-family: 'archiaregular';
+    src: url('#{$fontLocation}03.Archia-Regular-webfont/archia-regular-webfont.eot');
+    src: url('#{$fontLocation}03.Archia-Regular-webfont/archia-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('#{$fontLocation}03.Archia-Regular-webfont/archia-regular-webfont.woff2') format('woff2'),
+         url('#{$fontLocation}03.Archia-Regular-webfont/archia-regular-webfont.woff') format('woff'),
+         url('#{$fontLocation}03.Archia-Regular-webfont/archia-regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'archiamedium';
+    src: url('#{$fontLocation}04.Archia-Medium-webfont/archia-medium-webfont.eot');
+    src: url('#{$fontLocation}04.Archia-Medium-webfont/archia-medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('#{$fontLocation}04.Archia-Medium-webfont/archia-medium-webfont.woff2') format('woff2'),
+         url('#{$fontLocation}04.Archia-Medium-webfont/archia-medium-webfont.woff') format('woff'),
+         url('#{$fontLocation}04.Archia-Medium-webfont/archia-medium-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+// @font-face {
+//     font-family: 'archiasemibold';
+//     src: url('#{$fontLocation}05.Archia-Semibold-webfont/archia-semibold-webfont.eot');
+//     src: url('#{$fontLocation}05.Archia-Semibold-webfont/archia-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+//          url('#{$fontLocation}05.Archia-Semibold-webfont/archia-semibold-webfont.woff2') format('woff2'),
+//          url('#{$fontLocation}05.Archia-Semibold-webfont/archia-semibold-webfont.woff') format('woff'),
+//          url('#{$fontLocation}05.Archia-Semibold-webfont/archia-semibold-webfont.ttf') format('truetype');
+//     font-weight: normal;
+//     font-style: normal;
+// }
+
+@font-face {
+    font-family: 'archiabold';
+    src: url('#{$fontLocation}06.Archia-Bold-webfont/archia-bold-webfont.eot');
+    src: url('#{$fontLocation}06.Archia-Bold-webfont/archia-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('#{$fontLocation}06.Archia-Bold-webfont/archia-bold-webfont.woff2') format('woff2'),
+         url('#{$fontLocation}06.Archia-Bold-webfont/archia-bold-webfont.woff') format('woff'),
+         url('#{$fontLocation}06.Archia-Bold-webfont/archia-bold-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}

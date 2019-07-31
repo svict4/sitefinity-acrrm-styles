@@ -1,0 +1,167 @@
+.form-group {
+    margin-bottom: 30px;
+
+    .sf-backend-wrp & {
+        &:before, 
+        &:after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+    }
+}
+
+.form-inline .form-group {
+    width: 100%;
+}
+
+.sf-SubmitButton.btn  {
+    @extend .btn-secondary;
+}
+
+
+.bg-primary-1,
+.bg-secondary-1 {
+    .text-muted {
+        color: #fff;
+    }
+}
+
+html:not(.sfPageEditorWrp) .bg-primary-1 {
+    .form-control {
+        color: #fff;
+    
+        &:placeholder {
+            color: #fff;
+        }
+    }
+    
+    .input-field > label,
+    input[type=text]:not(.browser-default):focus:not([readonly]) + label, 
+    .input-label {
+        color: $color-secondary-1;
+    }
+
+    input[type=text]:not(.browser-default) {
+        border-bottom-color: #fff;
+
+        &:hover, 
+        &:focus {
+            border-bottom-color: $color-quaternary-1;
+        }
+    }
+
+    [type="radio"]:not(:checked) + span {
+        &:before, 
+        &:after {
+            border-color: $color-secondary-1;
+        }
+    }
+
+    label:hover [type="radio"]:not(:checked) + span:before, 
+    label:hover:not(:checked) + span:after, 
+    label [type="radio"]:focus [type="radio"]:not(:checked) + span:before, 
+    label [type="radio"]:focus:not(:checked) + span:after {
+        border-color: $color-secondary-1;
+    }
+    
+    
+    label:hover [type="checkbox"].filled-in + span:not(.lever), 
+    label:hover.filled-in + span:not(.lever), 
+    label [type="checkbox"]:focus [type="checkbox"].filled-in + span:not(.lever), 
+    label [type="checkbox"]:focus.filled-in + span:not(.lever) {
+        color: #fff;
+    }
+
+    [type="checkbox"].filled-in:not(:checked) + span:not(.lever):before {
+        
+    }
+
+    [type="checkbox"].filled-in:not(:checked) + span:not(.lever):after {
+        border-color: $color-secondary-1;
+    }
+
+    [type="checkbox"].filled-in + span:not(.lever) {
+        &:hover, 
+        &:focus {
+            
+        }
+    }
+
+}
+
+// Forms
+//
+// Base forms styleguide
+//
+// Markup:
+//<div>
+// <div class="form-group" data-sf-role="text-field-container">
+//     <label for="Textbox-1">First Name</label>
+//     <input id="Textbox-1" data-sf-role="text-field-input" type="text" name="TextFieldController_0" placeholder="First Name" value="" required="required" class="form-control">
+// </div>
+// <div class="form-group" data-sf-role="text-field-container">
+//     <label for="Textbox-2">Last Name</label>
+//     <input id="Textbox-2" data-sf-role="text-field-input" type="text" name="TextFieldController" placeholder="Last name" value="" class="form-control">
+// </div>
+// <div class="form-group" data-sf-role="multiple-choice-field-container">
+//     <strong>Select a choice</strong>
+//     <div class="radio">
+//         <label>
+//             <input type="radio" name="MultipleChoiceFieldController" value="First Choice" data-sf-role="multiple-choice-field-input">
+//             First Choice
+//         </label>
+//     </div>
+//     <div class="radio">
+//         <label>
+//             <input type="radio" name="MultipleChoiceFieldController" value="Second Choice" data-sf-role="multiple-choice-field-input">
+//             Second Choice
+//         </label>
+//     </div>
+//     <div class="radio">
+//         <label>
+//             <input type="radio" name="MultipleChoiceFieldController" value="Third Choice" data-sf-role="multiple-choice-field-input">
+//             Third Choice
+//         </label>
+//     </div>
+// </div>
+// <div class="form-group" data-sf-role="checkboxes-field-container">
+//     <strong>Select a choice</strong>
+//     <div class="checkbox">
+//         <label>
+//             <input type="checkbox" name="CheckboxesFieldController" value="First Choice" data-sf-role="checkboxes-field-input">
+//             First Choice
+//         </label>
+//     </div>
+//     <div class="checkbox">
+//         <label>
+//             <input type="checkbox" name="CheckboxesFieldController" value="Second Choice" data-sf-role="checkboxes-field-input">
+//             Second Choice
+//         </label>
+//     </div>
+//     <div class="checkbox">
+//         <label>
+//             <input type="checkbox" name="CheckboxesFieldController" value="Third Choice" data-sf-role="checkboxes-field-input">
+//             Third Choice
+//         </label>
+//     </div>
+// </div>
+// <div class="form-group" data-sf-role="dropdown-list-field-container">
+//     <label for="Dropdown-1">
+//         Select a choice
+//     </label>
+//     <select id="Dropdown-1" name="DropdownListFieldController" class="form-control">
+//         <option selected="" value="- Select -">- Select -</option>
+//         <option value="First Choice">First Choice</option>
+//         <option value="Second Choice">Second Choice</option>
+//     </select>
+// </div>
+// <div class="form-group" data-sf-role="paragraph-text-field-container">
+//     <label for="Textarea-1">Untitled </label>
+//     <textarea id="Textarea-1" class="form-control" rows="4" data-sf-role="paragraph-text-field-textarea" name="ParagraphTextFieldController"></textarea>
+// </div>
+// <div class="form-group">
+//     <button type="submit" class="sf-SubmitButton btn btn-primary">Submit</button>
+// </div>
+//
+// Styleguide Components.forms

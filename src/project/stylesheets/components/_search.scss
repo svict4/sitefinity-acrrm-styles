@@ -1,0 +1,115 @@
+.search-dropdown {
+    .search-toggle {
+
+    }
+
+    .search-dropdown-content-outer {
+        position: fixed;
+        right: 0px;
+        left: 0;
+        height: 0;
+        overflow: hidden;
+        transition: opacity $nav-transition-speed ease-out, height $nav-transition-speed ease-out;
+        background: rgba(0, 0, 0, 0);
+
+        @include only($nav-available) {
+            top: $nav-height-available-unscrolled;
+        }
+
+        @include only(x) {
+            top: calc(#{$nav-height-available-unscrolled} * 0.85);
+        }
+
+        @include only($nav-unavailable) {
+            top: $nav-height-unavailable-unscrolled;
+        }
+    }
+
+    .search-dropdown-content-inner { 
+        width: 100%;
+        transition: height 0.3s ease-out;
+    }
+
+    .container {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .align-i-center {
+        @include only(x) {
+            align-items: inherit;
+        }
+    }
+
+    &.active {
+        .search-dropdown-content-outer { 
+            z-index: 3;
+            background: rgba(0, 0, 0, 0.4);
+
+            @include only($nav-available) {
+                height: calc(100vh - (#{$nav-height-available-unscrolled}));
+            }
+
+            @include only(x) {
+                height: calc(100vh - (#{$nav-height-available-unscrolled} * 0.85));
+            }
+            
+            @include only($nav-unavailable) {
+                height: calc(100vh - #{$nav-height-unavailable-unscrolled});
+            }
+        }
+
+        .search-dropdown-content-inner { 
+            
+        }
+    }
+}
+
+.search-input {
+    position: relative;
+
+    #hd & .search-input-text {
+        font-family: $fontBold;
+        @include fluid-type(20px, 40px);
+        color: #fff;
+        margin-bottom: 0;
+        box-shadow: none;
+        padding-bottom: 20px;
+        height: 1.2em;
+
+        &:hover, 
+        &:focus {
+            border-bottom: 1px solid $color-tertiary-1;
+            box-shadow: 0 1px 0 0 $color-tertiary-1;
+        }
+
+        &::placeholder {
+            color: #ccc;
+        }
+    }
+
+    .search-input-submit {
+        font-family: 'Font Awesome 5 Pro';
+        font-weight: 400;
+        -webkit-font-smoothing: antialiased;
+        display: inline-block;
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        line-height: 1;
+        background: none;
+        border: none;
+        color: $color-secondary-1;
+        cursor: pointer;
+        @include fluid-type(20px, 40px);
+        position: absolute;
+        top: 0px; 
+        right: 0px;
+        height: 1.2em;
+
+        &:hover, 
+        &:focus {
+            color: #fff;
+        }
+    }
+}

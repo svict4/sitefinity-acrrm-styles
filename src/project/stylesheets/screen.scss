@@ -1,0 +1,64 @@
+﻿@charset 'UTF-8';
+
+// 1. Configuration and helpers
+@import
+  'abstracts/functions',
+  'abstracts/variables',
+  'abstracts/mixins';
+
+// 2. Vendors
+@import 'vendor/bootstrap-rework', 
+        'vendor/sitefinity', 
+        'vendor/jarallax', 
+        'vendor/materialize/waves',
+        'vendor/materialize/dropdown',
+        'vendor/materialize/forms/input-fields', 
+        'vendor/materialize/forms/checkboxes',
+        'vendor/materialize/forms/radio-buttons',
+        'vendor/materialize/forms/select',
+        'vendor/materialize/buttons-floating';
+// @import
+//   'vendor/normalize';
+
+// 3. Base stuff
+@import
+  'base/base',
+  'base/fonts',
+  'base/typography',
+  'base/helpers', 
+  'base/kss';
+
+// 4. Layout-related sections
+@import
+  'layout/grid';
+
+// 5. Components
+@import
+  'components/button', 
+  'components/cards',
+  'components/forms',
+  'components/navigation/breadcrumb',
+  'components/navigation/mainNavigation',
+  'components/navigation/navigation-device',
+  'components/photo-set-grid', 
+  'components/skipTo', 
+  'components/social-media', 
+  'components/embed',
+  'components/banner',
+  'components/tabs', 
+  'components/accordion', 
+  'components/search',
+  'components/cta-panel', 
+  'components/stories',
+  'components/photo-slider',
+  'components/documents', 
+  'components/mediaReleases', 
+  'components/pathways/pathwaysDetails';
+
+// 6. Page-specific styles
+@import
+  'pages/home';
+
+// 7. Themes
+@import
+  'themes/default';

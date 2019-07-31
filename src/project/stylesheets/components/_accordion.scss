@@ -1,0 +1,74 @@
+.accordion-ws {
+    margin-bottom: $margin-gutter;
+    box-shadow: $box-shadow;
+    transition: 0.15s box-shadow ease-out;
+    border-radius: $card-borderRadius;
+
+    i {
+        color: $color-quaternary-1;
+        font-weight: 500;
+        @include fluid-type($delta-MinFontSize, $delta-MaxFontSize);
+        align-self: center;
+    }
+
+    + .accordion-ws { 
+        margin-top: calc(-1 * (#{$margin-gutter} - 5px));
+    }
+
+    .accordion-ws-toggle {
+        width: 100%;
+        border: none;
+        background: none;
+        color: $color-secondary-1;
+        font-family: $fontBold;
+        @include fluid-type($epsilon-MinFontSize, $epsilon-MaxFontSize);
+        text-align: left;
+        padding: $gutter-width-xs;
+        outline: 0;
+        vertical-align: top;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @include only(smlz) {
+            padding: $gutter-width-lg;
+        }
+
+        &:hover,
+        &:focus {
+            color: darken($color-secondary-1, 10%);
+            cursor: pointer;
+        }   
+
+        .sf_colsIn {
+            padding-right: 20px;
+        }
+    }
+
+    .accordion-ws-content {
+        padding: 0 $gutter-width-xs $gutter-width-xs;
+
+        @include only(smlz) {
+            padding: 0 $gutter-width-lg $gutter-width-lg;
+        }
+        
+        html:not(.sfPageEditorWrp) & {
+            display: none;
+        }
+    }
+
+    .sfPageEditorWrp & {
+        padding: $gutter-width-xs;
+        border: 2px dashed purple;
+    }
+
+    &.accordion-ws-active {
+        .accordion-ws-toggle .fa:before {
+            content: '\f068';
+        }
+    }
+
+    &:hover {
+        box-shadow: $box-shadow-hover;
+    }
+}

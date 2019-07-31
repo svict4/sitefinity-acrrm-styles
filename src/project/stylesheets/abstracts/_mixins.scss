@@ -1,0 +1,226 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+
+// Only - Breakpoint Manager 
+//
+// The only mixin helps us manage our breakpoints for minimalisation and to create print friendly stylesheets
+// - x : Mobile(Portrait)
+// - s : Mobile(Landscape) /  Tablet(Portrait) 
+// - m : Tablet(Portrait) / Laptop
+// - l : laptop / Desktop 
+// - z : laptop / Desktop
+// Markup:
+// @include only(xsmlz) {
+//  font-size: 12px;
+// }
+//
+//
+// Styleguide Functions.Mixins.Only
+
+@mixin only($type) {
+  
+      //Using Bootstrap 4 breakpoints
+      $printOnly: false !default;
+      $tape: $type;
+      
+      $sm: $small;
+      $md: $medium;
+      $lg:  $large;
+      $xl:  $xtra-large;
+      $x: $xtra-small;
+  
+      //DEFINITIONS: 
+          // - x : Mobile(Portrait)
+          // - s : Mobile(Landscape) /  Tablet(Portrait) 
+          // - m : Tablet(Portrait) / Laptop
+          // - l : laptop / Desktop 
+          // - z : laptop / Desktop
+  
+      @if $tape != null {
+          //single break point
+          // X only
+          @if $printOnly != true and str-index( $tape, x ) != null and str-index( $tape, s ) == null and str-index( $tape, m ) == null and str-index( $tape, l ) == null and str-index( $tape, z ) == null and str-index( $tape, x ) > 0 {
+              @media ( max-width: $x ) {
+                  @content;
+              }
+          }
+  
+          // S only
+          @if $printOnly != true and str-index( $tape, x ) == null and str-index( $tape, s ) != null and str-index( $tape, m ) == null and str-index( $tape, l ) == null and str-index( $tape, z ) == null and str-index( $tape, s ) > 0 {
+              @media ( min-width: $sm ) and ( max-width: $md - 1px ) {
+                  @content;
+              }
+          }
+  
+          // M only
+          @if $printOnly != true and str-index( $tape, x ) == null and str-index( $tape, s ) == null and str-index( $tape, m ) != null and str-index( $tape, l ) == null and str-index( $tape, z ) == null and str-index( $tape, m ) > 0 {
+              @media ( min-width: $md ) and ( max-width: $lg - 1px ) {
+                  @content;
+              }
+          }
+  
+          // L only
+          @if $printOnly != true and str-index( $tape, x ) == null and str-index( $tape, s ) == null and str-index( $tape, m ) == null and str-index( $tape, l ) != null and str-index( $tape, z ) == null and str-index( $tape, l ) > 0 {
+              @media ( min-width: $lg ) and ( max-width: $xl - 1px ) {
+                  @content;
+              }
+          }
+  
+          // Z only
+          @if $printOnly != true and str-index( $tape, x ) == null and str-index( $tape, s ) == null and str-index( $tape, m ) == null and str-index( $tape, l ) == null and str-index( $tape, z ) != null and str-index( $tape, z ) > 0 {
+              @media ( min-width: $xl ) {
+                  @content;
+              }
+          }
+  
+          //Double Breakpoint
+          // X and S
+          @if $printOnly != true and str-index( $tape, x ) != null and str-index( $tape, s ) != null and str-index( $tape, m ) == null and str-index( $tape, l ) == null and str-index( $tape, z ) == null {
+              @media ( max-width: $md - 1px ) {
+                  @content;
+              }
+          }
+  
+          // S and M
+          @if $printOnly != true and str-index( $tape, x ) == null and str-index( $tape, s ) != null and str-index( $tape, m ) != null and str-index( $tape, l ) == null and str-index( $tape, z ) == null {
+              @media ( min-width: $sm ) and ( max-width: $lg - 1px ) {
+                  @content;
+              }
+          }
+  
+          // M and L
+          @if $printOnly != true and str-index( $tape, x ) == null and str-index( $tape, s ) == null and str-index( $tape, m ) != null and str-index( $tape, l ) != null and str-index( $tape, z ) == null {
+              @media ( min-width: $md ) and ( max-width: $xl - 1px) {
+                  @content;
+              }
+          }
+  
+          // L and Z
+          @if $printOnly != true and str-index( $tape, x ) == null and str-index( $tape, s ) == null and str-index( $tape, m ) == null and str-index( $tape, l ) != null and str-index( $tape, z ) != null {
+              @media ( min-width: $lg ) {
+                  @content;
+              }
+          }
+  
+          //Triple Breakpoint
+          // X, S, and M
+          @if $printOnly != true and str-index( $tape, x ) != null and str-index( $tape, s ) != null and str-index( $tape, m ) != null and str-index( $tape, l ) == null and str-index( $tape, z ) == null {
+              @media ( max-width: $lg - 1px ) {
+                  @content;
+              }
+          }
+  
+          // S, M, and L
+          @if $printOnly != true and str-index( $tape, x ) == null and str-index( $tape, s ) != null and str-index( $tape, m ) != null and str-index( $tape, l ) != null and str-index( $tape, z ) == null {
+              @media ( min-width: $sm) and ( max-width: $xl - 1px ) {
+                  @content;
+              }
+          }
+  
+          // M, L, and Z
+          @if $printOnly != true and str-index( $tape, x ) == null and str-index( $tape, s ) == null and str-index( $tape, m ) != null and str-index( $tape, l ) != null and str-index( $tape, z ) != null {
+              @media ( min-width: $md) {
+                  @content;
+              }
+          }
+  
+          //Quadruple Breakpoint
+          // X, S, M and L
+          @if $printOnly != true and str-index( $tape, x ) != null and str-index( $tape, s ) != null and str-index( $tape, m ) != null and str-index( $tape, l ) != null and str-index( $tape, z ) == null {
+              @media ( max-width: $xl - 1px ) {
+                  @content;
+              }
+          }
+  
+          // S, M, L, and Z
+          @if $printOnly != true and str-index( $tape, x ) == null and str-index( $tape, s ) != null and str-index( $tape, m ) != null and str-index( $tape, l ) != null and str-index( $tape, z ) != null {
+              @media ( min-width: $sm) {
+                  @content;
+              }
+          }
+          
+          //cater for print screen
+          @if $printOnly == true and str-index( $tape, xl ) != null and str-index( $tape, l ) > 0 {
+              @content;
+          }
+      }
+  }
+  
+  
+  @function strip-unit($value) {
+    @return $value / ($value * 0 + 1);
+  }
+  
+  // Fluid Type
+  //
+  // Our Sites use fluid type in our handling of text in content. Dont't be surprised when you see some math in the inspector for font sizes.
+  //
+  //
+  // Styleguide Base.Fluid Type
+  
+  @mixin fluid-type($min-font-size, $max-font-size) {
+      $min-vw: $min-viewport-width;
+      $max-vw: $max-viewport-width;
+      $u1: unit($min-vw);
+      $u2: unit($max-vw);
+      $u3: unit($min-font-size);
+      $u4: unit($max-font-size);
+  
+    @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+      & {
+  
+        font-size: $min-font-size;
+        @media screen and (min-width: $min-vw) {
+          font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+        }
+  
+        @media screen and (min-width: $max-vw) {
+          font-size: $max-font-size;
+        }
+      }
+    }
+  }
+  
+  @mixin fluid-type-widths($min-vw, $max-vw, $min-font-size, $max-font-size) {
+    $u1: unit($min-vw);
+    $u2: unit($max-vw);
+    $u3: unit($min-font-size);
+    $u4: unit($max-font-size);
+  
+    @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+      & {
+  
+        font-size: $min-font-size;
+        @media screen and (min-width: $min-vw) {
+          font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+        }
+  
+        @media screen and (min-width: $max-vw) {
+          font-size: $max-font-size;
+        }
+      }
+    }
+  }
+  
+  // Fluid Type
+  //
+  // Fluid type is the process of Math based scaling between two break points and two font sizes.
+  //
+  // Currently there are two fluid type mixins for flexibility of use:
+  // - @include fluid-type($min-font-size, $max-font-size)
+  //
+  // fluid-type only allows for adjusting the two font sizes specified. The break points are fixed in _variables.scss and using the bootstrap break points as their answer.
+  //
+  // - @include fluid-type-widths($min-vw, $max-vw, $min-font-size, $max-font-size)
+  //
+  // fluid-type-widths allows for adjusting between two fonts sizes and adjusting between a min and max breakpoint.
+  //
+  // Markup:
+  // @include fluid-type(25px, 60px);
+  // <div class="fluid-type-example">This is an example of fluid type with fixed breakpoints</div>
+  // @include fluid-type-widths(768px, 1200px, 25px, 60px);
+  // <div class="fluid-type-widths-example">This is an example of fluid type with user implemented breakpoints between 768px and 1200px</div>
+  //
+  // Styleguide Functions.Mixins.Fluid Type

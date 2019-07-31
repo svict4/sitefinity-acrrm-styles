@@ -1,0 +1,18 @@
+/* Print CSS file */
+$printOnly: true;
+
+@import "screen.scss"; //Sitefinity Files
+
+@media print {
+	* { -webkit-print-color-adjust: exact; }
+
+	@page { margin: 0.3cm; }
+
+	body {
+  		width: 1200px !important;
+  		//padding: 0 15px;
+	}
+
+    .sfInlineEditingPageMenu { display: none!important; }
+}
+

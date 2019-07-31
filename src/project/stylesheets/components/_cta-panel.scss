@@ -1,0 +1,74 @@
+.cta-panel {
+    text-align: center;
+
+    .pre-heading {
+        margin-bottom: 40px;
+        font-size: $min_font;
+        font-family: $fontBold;
+
+        @include only (xs) {
+            margin-bottom: 25px;
+        }
+    }
+
+    p {
+        margin-bottom: 40px;
+    }
+}
+
+.cta-panel-variant {
+    .container {
+        position: relative;
+
+        @include only (xsm) {
+            display: flex;
+        }
+
+        img {
+            max-width: 25%;
+            max-height: 100px;
+            padding-right: 30px;
+
+                @include only (mlz) {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                max-width: 500px;
+                width: 100%;
+                max-height: 525px;
+                height: 100%;
+            }
+
+            @include only (x) {
+                display: none;
+            }
+        }
+
+        .panel-content {
+            max-width: 720px;
+            position: relative;
+            width: 100%;
+
+            .pre-heading {
+                color: $color-quaternary-1;
+                font-size: 14px;
+                font-family: $fontBold;
+            }
+        
+            p {
+                margin-bottom: 40px;
+            }
+
+        }
+    }
+}
+
+.cta-panel, .cta-panel-variant {
+    .col-item {
+        margin-bottom: 30px;
+    }
+    
+    .col-item:last-child {
+        margin-bottom: 0;
+    }
+}

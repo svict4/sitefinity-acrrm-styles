@@ -1,0 +1,175 @@
+$tabs-unavailable: xs;
+$tabs-available: mlz;
+
+.tabs-ws {
+    border-radius: $card-borderRadius;
+
+    .sfPageEditorWrp & {
+        padding: $gutter-width-xs;
+        border: 2px dashed purple;
+    }
+
+    html:not(.sfPageEditorWrp) & {
+        @include only($tabs-available) {
+            .tab-ws-content {
+                display: none;
+            }
+        }
+    }
+
+    @include only($tabs-available) {
+        margin-bottom: $margin-gutter;
+        box-shadow: $box-shadow;
+        transition: 0.15s box-shadow ease-out;
+
+        &:hover {
+            box-shadow: $box-shadow-hover;
+        }
+    }
+}
+
+.tab-ws {
+    @include only($tabs-unavailable) {
+        margin-bottom: $margin-gutter;
+        box-shadow: $box-shadow;
+        transition: 0.15s box-shadow ease-out;
+
+        &:hover {
+            box-shadow: $box-shadow-hover;
+        }
+
+        + .tab-ws {
+            margin-top: calc(-1 * (#{$margin-gutter} - 5px));
+        }
+    }
+}
+
+.tab-ws-toggle {
+    background: none;
+    border: none;
+    width: 100%;
+    vertical-align: top;
+    padding: 10px 42px;
+    position: relative;
+    font-family: $fontBold;
+    color: $color-secondary-1;
+    @include fluid-type(18px, 24px);
+
+    .fa {
+        color: $color-quaternary-1;
+        font-weight: 500;
+        @include fluid-type($delta-MinFontSize, $delta-MaxFontSize);
+        align-self: center;
+    }
+
+    &:hover, 
+    &:focus {
+        outline: 0;
+        cursor: pointer;
+        color: darken($color-secondary-1, 10%);
+    }
+
+    @include only($tabs-unavailable) {
+        text-align: left;
+        padding: $gutter-width-xs;
+        color: $color-secondary-1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px;
+
+        &.active .fa:before {
+            content: '\f068';
+        }
+    }
+
+    @include only($tabs-available) {
+        min-height: 83px;
+        padding: 10px 30px;
+
+        .fa {
+            display: none;
+        }
+    }
+
+    @include only(x) {
+        padding: 15px;
+    }
+}
+
+.tabs-header {
+    position: relative;
+
+    > .sf_cols {
+        width: 100%;
+    }
+
+    .tabs-header-indicator {
+        transition: left 0.2s ease-out, width 0.2s ease-in;
+        height: 8px; 
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        background-color: $color-quaternary-1;
+
+        @include only($tabs-unavailable) {
+            display: none!important;
+        }
+    }
+
+    @include only($tabs-available) {
+        display: flex;
+        
+        .tab-ws {
+            width: 100%;
+            display: flex;
+        }
+    }
+}
+
+.tabs-body, 
+.tab-ws-content {
+    padding: 30px 42px;
+
+    @include only($tabs-unavailable) {
+        padding: $gutter-width-xs;
+        display: none;
+    }
+}
+
+.tab-ws-content {
+    @include only($tabs-available) {
+        display: none !important;
+    }
+}
+
+.tab-item-ws {
+    padding: $gutter-width-xs;
+
+    .sfPageEditorWrp & {
+        border: 2px dashed red;
+        margin-bottom: $gutter-width-xs;
+    }
+}
+
+.tabs-ws-clear { 
+    @include only(mlz) {
+        box-shadow: none;
+
+        .tab-ws-toggle {
+            color: #fff;
+        }
+        
+        &:hover {
+            box-shadow: none;
+        }
+    }
+}
+
+.tabs-negative-top {
+    @include only(mlz) {
+        margin-top: -83px;
+        z-index: 2;
+        position: relative;
+    }
+}

@@ -1,0 +1,21 @@
+.photoset-grid {
+    opacity: 0;
+    height: 0;
+    margin-bottom: 30px;
+
+    &[data-width] { height: auto; opacity: 1; }
+
+    + .container { margin-bottom: 30px; }
+
+    &:after { content: ""; clear: both; display: table; }
+
+    > .photoset-cell { padding: 0!important; float: none!important; }
+
+    .photoset-row { margin-bottom: 10px; }
+
+    .cols-3 img { max-width: 850px; }
+
+    .cols-2 img { max-width: 1267px; }
+
+    .cols-4 img { max-width: 630px; }
+}

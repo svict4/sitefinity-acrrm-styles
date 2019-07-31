@@ -1,0 +1,15 @@
+.kss-section__description {
+    @extend .sfContentBlock;
+
+    p { margin-bottom: 1rem; }
+}
+
+.fluid-type-example {
+    @include fluid-type(25px, 60px);
+    line-height: 1.6em;
+}
+
+.fluid-type-widths-example {
+    @include fluid-type-widths(768px, 1200px, 25px, 60px);
+    line-height: 1.6em;
+}

@@ -1,0 +1,280 @@
+//Banner
+//
+// A multi use banner that has options for parallax and display modes
+//
+//Styleguide Components.Banner
+
+$negative-margin-gutter: 8.33333%;
+
+.banner {
+    position: relative;
+
+    .banner-body {
+        z-index: 3;
+    }
+
+    .banner-negative-margin-left {
+        @include only(smlz) {
+            margin-left: -($negative-margin-gutter);
+        }
+
+        @include only(sml) {
+            flex: 0 0 calc(50% + 8.3333%);
+            max-width: calc(50% + 8.3333%);
+
+        }
+    }
+
+    .banner-negative-margin-left-offset {
+        @include only(sml) {
+            margin-left: calc(16.1% + 20px);
+        }
+
+        @include only(z) {
+            margin-left: calc(20.8% + 40px);
+        }
+    }
+
+    .col-sm-6.img-bg, 
+    .col-sm-6.has-video-no-parallax {
+        margin-left: -5px;
+        margin-right: -5px;
+
+        @include only(x) {
+            flex: 0 0 calc(100% + 10px);
+            max-width: calc(100% + 10px);
+        }
+
+        @include only(smlz) {
+            margin-left: -15px;
+            margin-right: -15px;
+
+            flex: 0 0 calc(50% + 30px);
+            max-width: calc(50% + 30px);
+        }
+    }
+
+    .banner-author {
+        .img-bg {
+            width: 65px;
+            height: 65px;
+            border-radius: 100px;
+            background-color: $color-secondary-1;
+        }
+
+        @include only(xsm) {
+            display: flex;
+            align-items: flex-start;
+
+            .img-bg {
+                margin-right: 15px;
+            }
+        }
+
+        .banner-author-name {
+            
+            color: $color-primary-1;
+            font-family: $fontBold;
+            font-size: 12px;
+            white-space: nowrap;
+
+            @include only(xsm) {
+                color: #fff;
+            }
+
+            @include only(lz) {
+                position: absolute;
+                top: calc(100% + 5px);
+                left: 0px;
+            }
+        }
+    }
+
+    &.banner-hero {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+
+        .section-body > &:first-child {
+            height: calc(100vh - #{$nav-height-unavailable-unscrolled});
+        }
+
+        .section-header-sticky + .section-body > &:first-child {
+            @include only($nav-available) {
+                height: calc(100vh - #{$nav-height-available-unscrolled});
+            }
+
+            @include only(x) {
+                height: calc(100vh - (#{$nav-height-available-unscrolled} * 0.75));
+            }
+    
+            @include only($nav-unavailable) {
+                height: calc(100vh - #{$nav-height-unavailable-unscrolled});
+            }
+        }
+    }
+
+    &.banner-pageHeader {
+        padding-top: 30px;
+
+        .banner-body.tb-padding {
+            @include only(x) {
+                padding-top: 60px;
+            }
+            @include only(sm) {
+                padding-top: 0;
+                padding-bottom: 75px;
+            }
+        }
+
+        .banner-author,
+        .fixed-action-btn {  
+            position: absolute;
+            bottom: inherit;
+            
+            @include only(x) {
+                transform: translateY(-50%);
+                top: 0;
+            }
+
+            @include only(smlz) {
+                transform: translateY(50%);
+            }
+
+            @include only(s) {
+                bottom: 0;
+            }
+          
+            @include only(m) {
+                bottom: calc(#{$tb-gutter-md} / 1.5);
+            }
+          
+            @include only(lz) {
+                bottom: calc(#{$tb-gutter-lg} / 1.5);
+            }
+        }
+        
+        .banner-author {
+            left: 15px;
+        }
+
+        .fixed-action-btn {  
+            right: 15px;
+        }
+
+        @include only(smlz) {
+            padding-top: 37px;
+        }
+
+        &:before {
+            content: "";
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+            background: #fff;
+            z-index: 0;
+          
+            @include only(m) {
+                padding-top: calc(#{$tb-gutter-md} / 1.5);
+            }
+          
+            @include only(lz) {
+                padding-top: calc(#{$tb-gutter-lg} / 1.5);
+            }
+        }
+
+        .img-bg-padding { 
+            padding-top: 67.56%;
+        }
+
+        .btn-wrap {
+            .col-item {
+                padding-bottom: 20px;
+            }
+        }
+    }
+
+    &.has-pos-ab-sharing {
+        .container {
+            position: relative;
+        }
+
+        .fixed-action-btn {
+            position: absolute;
+            bottom: 0px;
+            transform: translateY(50%);
+        }
+    }
+}
+
+.img-overlay {
+    &:before {
+        content: "";
+        background: rgba(0,0,0,0.25);
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        z-index: 2;
+    }
+
+    &.img-overlay-light:before { background: rgba(0,0,0,0.1); }
+
+    &.img-overlay-medium:before { background: rgba(0,0,0,0.25); }
+
+    &.img-overlay-heavy:before { background: rgba(0,0,0,0.4); }
+
+    .container {
+        position: relative;
+        z-index: 3;
+    }
+}
+
+.img-bg {
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+}
+
+.img-bg-square {
+    padding-top: 100%;
+}
+
+a.img-bg {
+    transition: 0.3s opacity ease-out;
+
+    &:hover, 
+    &:focus {
+        opacity: 0.8
+    }
+}
+
+.img-bg-padding {
+    padding-top: 56.25%;
+}
+
+.has-video-no-parallax {
+    overflow: hidden;
+    
+    video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: 100%;
+        z-index: 1;
+        transform: translateX(-50%) translateY(-50%);
+    }
+
+    &.video-portrait video {
+        height: 100%;
+    }
+
+    &.video-landscape video {
+        height: 100%;
+    }
+}

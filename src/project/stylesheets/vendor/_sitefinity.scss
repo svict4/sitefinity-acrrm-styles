@@ -1,0 +1,48 @@
+﻿//Import Bootstrap from npm
+/*@import "../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap.scss";*/
+/*@import "../../../../node_modules/magnific-popup/src/css/main.scss";*/
+
+// Sitefinity
+
+@import "../../../sitefinity/sass/components/icons/sf-icon-font";
+@import "../../../sitefinity/sass/widgets/socialShare/sf-sprite";
+/*@import "../../sitefinity/sass/sitefinity.scss";*/
+
+//Fix backend editing
+.sfPageEditorWrp {
+    [class*="col-"] {
+        box-sizing: border-box !important;
+    }
+
+    .fade {
+        opacity: 1;
+    }
+
+    .nav.nav-stacked {
+        flex-wrap: wrap;
+
+        li {
+            width: 100%;
+        }
+    }
+
+    .sf-backend-wrp.modal-fluid .modal-dialog {
+        margin: 0 auto !important;
+        max-width: 950px;
+        width: auto !important;
+    }
+}
+
+.sf-backend-wrp .close {
+    order: 2;
+}
+
+.modal-title {
+    width: 100%;
+}
+
+
+.sf-backend-wrp .modal-lg {
+    width: 100%!important;
+    max-width: 900px;
+}

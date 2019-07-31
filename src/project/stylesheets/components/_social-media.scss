@@ -1,0 +1,99 @@
+﻿
+.social-media-list {
+    display: flex;
+    margin-bottom: 0;
+
+    li {
+        margin-right: 15px;
+
+        @media (max-width: 1550px) {
+            margin-right: 10px;
+        }
+    }
+
+    a {
+        @extend .link;
+
+        @include fluid-type(14px, 18px);
+
+        @media (min-width: $large) and (max-width: 1550px) {
+            .btn-circle {
+                font-size: 10px;
+            }
+        }
+    }
+
+    &:after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+}
+
+.fixed-action-btn.direction-left, 
+.fixed-action-btn.direction-right {
+    ul {
+        height: 80%;
+        bottom: inherit;
+        bottom: initial;
+    }
+
+    ul li {
+        margin-top: 0;
+    }
+}
+
+.social-media-column {
+    @include only(x) {
+        display: flex;
+        justify-content: center; 
+
+        li {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    }
+    
+    @include only(smlz) {
+        li {
+            margin-bottom: 15px;
+        }
+    }
+
+    &.pos-ab-outer {
+        @include only(lz) {
+            position: absolute;
+            left: 100%;
+            top: 0px;
+        }
+
+        @include only(sm) { 
+            display: flex;
+            justify-content: center;
+    
+            li {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
+    }
+}
+
+// Social Media List
+//
+// Social media list styling
+//
+// Markup:
+//<ul class="social-media-list"> 
+//  <li> 
+//    <a href="#"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a> 
+//  </li> 
+//  <li> 
+//    <a href="#"><i class="fab fa-twitter" aria-hidden="true" ></i></a> 
+//  </li> 
+//  <li> 
+//    <a href="#"> <i class="fab fa-facebook-f" aria-hidden="true" ></i></a> 
+//  </li> 
+//</ul>
+//
+// Styleguide Components.Social Media List

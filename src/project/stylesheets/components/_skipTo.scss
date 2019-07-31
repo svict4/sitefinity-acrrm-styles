@@ -1,0 +1,41 @@
+.skipTo {
+	position: relative;
+    margin-top: 0;
+
+	a {
+		@extend .sr-only;
+		text-decoration: none;
+        background-color: $color-secondary-1;
+        line-height: 1em;
+        border: none;
+        min-height: 51px;
+        font-size: 12px;
+        padding: 19px 22px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: inline-block;
+        margin-top: 0;
+        color: #fff;
+        font-family: $fontBold;
+
+        &:hover,
+		&:focus { left: 0; top: 0px; height: auto; width: auto; outline: 0; opacity: 1; clip: auto; z-index: 3; }
+	}
+
+    @include only(xs) {
+        display: none;
+    }
+}
+
+.skipToTarget { outline: 0; }
+
+// Skip to
+//
+// Allows keyboard users to skip header to go to main content
+//
+// Markup:
+//<div class="skipTo">
+//  <a href="#content" id="skipToContent">skip to content</a>
+//</div >
+//
+// Styleguide Components.Skip to

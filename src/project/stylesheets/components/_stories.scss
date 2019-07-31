@@ -1,0 +1,126 @@
+.story-tile {
+    margin-bottom: 30px;
+
+    .img-bg {
+        display: block;
+        padding-top: 95%;
+        margin-bottom: 25px;
+    }
+
+    .zeta, .epsilon {
+        line-height: 1.4em;
+    }
+
+    .story-tile-author {
+        font-size: 10px;
+        color: #A7A7A7;
+        font-family: $fontBold;
+        letter-spacing: 1x;
+    }
+
+    &.story-tile-mini {
+        .img-bg {
+            float: left;
+            width: 33%;
+            margin-right: 20px;
+            padding-top: calc(95% * 0.33);
+        }
+    }
+}
+
+.pre-heading-withLine {
+    position: relative;
+    padding-left: calc(16px + 10px);
+    color: $color-quaternary-1;
+    font-size: 12px;
+    line-height: 1.6em;
+    font-family: $fontBold;
+    margin-bottom: 15px;
+
+    &:before {
+        content: "";
+        width: 16px;
+        height: 1px;
+        background-color: $color-primary-1;
+        font-size: 12px;
+        line-height: 1.6em;
+        position: absolute;
+        left: 0px;
+        top: calc(1.6em / 2);
+    }
+}
+
+.slick-slider-1 {
+
+    &.row {
+        margin-left: -10px;
+        margin-right: -10px;
+
+        .col-item {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    }
+
+    .slick-list {
+        position: relative;
+        overflow: inherit;
+
+        @include only(xsm) {
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+    }
+
+    .slick-track {
+        display: flex;
+
+        .slick-slide {
+            display: flex;
+            height: inherit;
+
+            > * {
+                width: 100%;
+            }
+        }
+    }
+    
+    .slick-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 2;
+
+        &.slick-disabled {
+            display: none!important;
+        }
+
+        @include only(x) {
+            //top: 100%;
+        }
+    }
+
+    .slick-prev {
+        left: calc(15px + 20px);
+
+        @include only(xsm) {
+            left: 10px;
+        }
+        
+        @include only(x) {
+            left: 0px;
+        }
+    }
+
+    .slick-next { 
+        right: calc(15px + 20px);
+
+        @include only(xsm) {
+            right: 10px;
+        }
+
+        @include only(x) {
+            right: 0px;
+        }
+    }
+}

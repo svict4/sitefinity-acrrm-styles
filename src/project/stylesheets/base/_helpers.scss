@@ -1,0 +1,548 @@
+// -----------------------------------------------------------------------------
+// This file contains CSS helper classes.
+// -----------------------------------------------------------------------------
+
+/**
+ * Clear inner floats
+ */
+.clearfix::after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+/**
+ * Main content containers
+ * 1. Make the container full-width with a maximum width
+ * 2. Center it in the viewport
+ * 3. Leave some space on the edges, especially valuable on small screens
+ */
+
+ .container,
+ .container-fluid {
+    padding-left: 20px; /* 3 */
+    padding-right: 20px; /* 3 */
+
+    @include only(smlz) {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .container-internal {
+        padding-left: 0;
+        padding-right: 0;
+    }
+ }
+
+.container {
+  max-width: $max-viewport-width; /* 1 */
+  margin-left: auto; /* 2 */
+  margin-right: auto; /* 2 */
+  
+  width: 100%; /* 1 */
+  will-change: max-width, margin;
+  transition: 0.3s max-width ease-out, 0.3s margin ease-out; 
+ }
+
+ .container-sm {
+     max-width: $medium;
+ }
+
+.container-xs {
+    max-width: 635px;
+}
+
+.row-sm {
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.row-xl {
+    transition: 0.3s all ease-out;
+    @media screen and (min-width: 1400px) {
+        margin-left: -60px;
+        margin-right: -60px;
+
+        [class*="col-"] {
+            padding-left: 60px;
+            padding-right: 60px;
+        }
+
+    }
+}
+
+
+/** 
+ * Page content containers 
+*/
+.tb-padding {
+  @include only(xs) {
+      padding-top: $tb-gutter-xs;
+      padding-bottom: $tb-gutter-xs;
+  }
+
+  @include only(m) {
+      padding-top: $tb-gutter-md;
+      padding-bottom: $tb-gutter-md;
+  }
+
+  @include only(lz) {
+      padding-top: $tb-gutter-lg;
+      padding-bottom: $tb-gutter-lg;
+  }
+
+  .tb-padding:not([class*="bg-"]) > .container { padding: 0; }
+
+  &:not([class*="bg-"]) + .tb-padding:not([class*="bg-"]) { padding-top: 0; }
+}
+
+.tb-padding.cta-panel-padding {
+    @include only(z) {
+        padding-top: 120px;
+        padding-bottom: 120px;
+    }
+}
+
+.t-padding {
+  @include only(xs) {
+      padding-top: $tb-gutter-xs;
+  }
+
+  @include only(m) {
+      padding-top: $tb-gutter-md;
+  }
+
+  @include only(lz) {
+      padding-top: $tb-gutter-lg;
+  }
+
+  .tb-padding:not([class*="bg-"]) > .container { padding: 0; }
+
+  &:not([class*="bg-"]) + .tb-padding:not([class*="bg-"]) { padding-top: 0; }
+}
+
+.b-padding {
+  @include only(xs) {
+      
+      padding-bottom: $tb-gutter-xs;
+  }
+
+  @include only(m) {
+      
+      padding-bottom: $tb-gutter-md;
+  }
+
+  @include only(lz) {
+      
+      padding-bottom: $tb-gutter-lg;
+  }
+
+  .tb-padding:not([class*="bg-"]) > .container { padding: 0; }
+}
+
+.tb-gutter {
+    padding-top: 37px;
+    padding-bottom: 37px;
+
+    @include only(x) {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+}
+
+/** 
+ * Backgrounds with content helpers
+*/
+
+.bg-primary-1 {
+  background: $color-primary-1;
+  color: #fff;
+
+  .link {
+      &:hover, 
+      &:focus { color: $color-tertiary-1; }
+  }
+
+  .btn-variable {
+      @extend .btn-tertiary;
+  }
+
+  .text-quaternary-1 {
+      color: $color-quaternary-1;
+  }
+}
+
+.bg-secondary-1 {
+  background: $color-secondary-1;
+  color: #fff;
+
+  .link {
+      color: $color-tertiary-1;
+
+      &:hover, 
+      &:focus { color: $color-primary-1; }
+  }
+
+  .btn-variable {
+      @extend .btn-primary;
+  }
+}
+
+.bg-tertiary-1 {
+    background: $color-tertiary-1;
+
+    // .link {
+    //     &:hover, 
+    //     &:focus { color: $color-tertiary-1; }
+    // }
+
+    .btn-variable {
+        @extend .btn-primary;
+    }
+}
+
+.bg-quinary-1 {
+    background: $color-quinary-1;
+
+    .btn-variable {
+        @extend .btn-primary;
+    }
+}
+
+
+// Table
+//
+// Table styling
+//
+// Markup:
+//<div class="table-responsive">
+//<table>
+//    <tr>
+//        <th>Cell heading</th>
+//        <th>Cell heading</th>
+//        <th>Cell heading</th>
+//    </tr>
+//    <tr>
+//        <td>Cell body</td>
+//        <td>Cell body</td>
+//        <td>Cell body</td>
+//    </tr>
+//    <tr>
+//        <td>Cell body</td>
+//        <td>Cell body</td>
+//        <td>Cell body</td>
+//    </tr>
+//</table>
+//</div>
+//
+// Styleguide Base.Style guide.Table
+
+
+table {
+  @extend .table;
+  @extend .table-striped;
+
+  width:100%;
+  display: table;
+  margin-bottom: 30px;
+
+  tbody tr:nth-of-type(odd) {
+    background: $color-quinary-1;
+  }
+}
+
+thead {
+    border-bottom: 1px solid $table-border-color;
+}
+
+td, 
+th {
+    @include fluid-type(14px, 16px);
+    
+    padding: 15px 5px;
+    display: table-cell;
+    text-align: left;
+    vertical-align: middle;
+    border-radius: 2px;
+}
+
+.table-responsive {
+    overflow-x: auto;
+
+    table {
+        th, 
+        td {
+            word-break: normal;
+        }
+    }
+}
+
+
+//color changers
+.text-standard {
+    color: $color-text;
+}
+
+.text-primary-1 {
+    color: $color-primary-1;
+}
+
+.text-secondary-1 {
+    color: $color-secondary-1;
+}
+
+.text-tertiary-1 {
+    color: $color-tertiary-1;
+}
+
+.text-quaternary-1 {
+    color: $color-quaternary-1;
+}
+
+.text-muted {
+    .bg-primary-1 & {
+        color: #ccc !important;
+    }
+
+    .bg-secondary-1 & {
+        color: darken($color-text, 10%) !important;
+    }
+}
+
+//text size changes 
+.text-xxs {
+    @include fluid-type(11px, 12px);
+    line-height: 1.7em;
+}
+
+.text-xs {
+    @include fluid-type(12px, 14px);
+    line-height: 1.7em;
+}
+
+.text-sm {
+    @include fluid-type(14px, 16px);
+    line-height: 1.7em;
+}
+
+.text-lg {
+    @include fluid-type(18px, 26px);
+    line-height: 1.7em;
+}
+
+.text-xl {
+    @include fluid-type(20px, 30px);
+    line-height: 1.6em;
+}
+
+.bg-img {
+    padding-top: 56.25%;
+    height: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.clearfix {
+    &:before, 
+    &:after {
+        content: '';
+        clear: both;
+        display: table;
+    }
+}
+
+
+
+ /** 
+  * Support for background images in high contrast mode for accessibility
+ */
+
+ 
+ .high-contrast-mode {
+    img.offScreen {
+        clip: initial;
+        clip: inherit;
+        height: auto; 
+        position: static;
+        width: auto;
+        max-width: 100%;
+        max-height: 100%;
+    }
+  
+    img.sr-only {
+        position: static;
+        width: auto;
+        height: auto;
+        margin: 0;
+        padding: 0;
+        overflow: inherit;
+        overflow: initial;
+        clip: inherit;
+        clip: initial;
+        border: 0; 
+    }
+  }
+
+// Flex Box
+//
+// Flex box classes to help with styling
+//
+// Styleguide Base.Helpers.FlexBox
+
+.display-flex {
+    display: flex;
+}
+
+.display-flex-sml {
+    @include only(smlz) {
+        display: flex;
+    }
+}
+
+// flex-direction
+.flex-direction-column {
+    flex-direction: column;
+}
+
+// flex box alignment
+// flex-wrap
+.flex-wrap-wrap {
+    flex-wrap: wrap;
+}
+
+// justify-content
+.justify-center {
+    justify-content: center;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.justify-end-lg {
+    @include only(lz) {
+    justify-content: flex-end;
+    }
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-around {
+    justify-content: space-around;
+}
+
+.justify-evenly {
+    justify-content: space-evenly;
+}
+
+// align-items
+.align-i-center {
+    align-items: center;
+}
+
+.align-i-end {
+    align-items: flex-end;
+}
+
+.align-i-stretch {
+    align-items: stretch;
+}
+
+.align-i-baseline {
+    align-items: baseline;
+}
+
+// align-content
+.align-c-center {
+    align-content: center;
+}
+
+.align-c-end {
+    align-content: flex-end;
+}
+
+.align-c-stretch {
+    align-content: stretch;
+}
+
+.align-c-between {
+    align-content: space-between;
+}
+
+.align-c-around {
+    align-content: space-around;
+}
+
+// align-self
+.align-s-center {
+    align-self: flex-center;
+}
+
+.align-s-end {
+    align-self: flex-end;
+}
+
+.align-s-stretch {
+    align-self: stretch;
+}
+
+
+.col-item {
+    padding-left: 15px;
+    padding-right: 15px;
+
+    .row-sm & {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.sub-line {
+    @include fluid-type(12px, 14px);
+    line-height: 1.1em;
+    margin-bottom: 1em;
+    color: $color-quaternary-1;
+
+    [class*="fa-"] { margin-right: 5px; @include fluid-type(14px, 16px); }
+}
+
+.z-index-2 {
+    z-index: 2;
+}
+
+.fa-first-margin {
+    margin-right: 8px;
+}
+
+.m-push {
+    margin-bottom: 1rem;
+}
+
+.m-push-60 {
+    margin-bottom: 60px;
+
+    @include only(x) {
+        margin-bottom: 30px;
+    }
+}
+
+.space-left {
+    margin-left: 8px;
+}
+
+.icon-sm {
+    height: 20px;
+
+    svg {
+        max-height: 100%;
+        max-width: 100%;
+        width: auto;
+    }
+}

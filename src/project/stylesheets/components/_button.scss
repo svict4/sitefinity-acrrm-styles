@@ -1,0 +1,393 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+
+// Buttons
+//
+// Various button styles. Buttons wrapped in the .button-container class will be evenly distributed horizontally and vertically.
+//
+// Markup:
+//<div class="button-container">
+//    <a href="#" class="btn btn-primary {{modifier_class}}">Primary</a>
+//    <a href="#" class="btn btn-secondary {{modifier_class}}">Secondary</a>
+//    <a href="#" class="btn btn-tertiary {{modifier_class}}">Tertiary</a>
+//    <a href="#" class="btn btn-outline-primary {{modifier_class}}">Primary</a>
+//    <a href="#" class="btn btn-outline-secondary {{modifier_class}}">Secondary</a>
+//    <a href="#" class="btn btn-outline-tertiary {{modifier_class}}">Tertiary</a>
+//</div>
+//
+// :hover - When user hover/focus over the button.
+// :disabled - When the button is disabled and unusable to the user.
+// .btn-sm - A small button.
+// .btn-lg - A large button.
+//
+// Styleguide Components.button
+
+.btn {
+    font-family: $fontBold;
+    @include fluid-type(14px,16px);
+    border-radius: 100px;
+    padding: 11px 35px;
+    box-shadow: $box-shadow;
+    transition: box-shadow 0.2s ease-out, background 0.2s ease-out;
+
+    &:hover, 
+    &:focus {
+        box-shadow: 0 5px 5px 1px rgba(0,0,0, 0.10);
+    }
+}
+
+.btn-primary {
+    /*@include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);*/
+    color: #fff;
+    background: $btn-primary-bg;
+    border-color: $btn-primary-border;
+    
+
+    &:hover, 
+    &:focus,
+    &.pseudo-class-hover {
+        color: #fff;
+        background-color: $btn-primary-bg-darken;
+        border-color: $btn-primary-bg-darken;
+    }
+
+    &[disabled],
+    &.pseudo-class-disabled {
+        background-color: $btn-primary-bg-disabled;
+        border-color: $btn-primary-bg-disabled;
+        cursor: default;
+    }
+}
+
+.btn-secondary {
+    /*@include button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border);*/
+    color: #fff;
+    background: $btn-secondary-bg;
+    border-color: $btn-secondary-border;
+
+    &:hover, 
+    &:focus,
+    &.pseudo-class-hover {
+        color: #fff;
+        background-color: $btn-secondary-bg-darken;
+        border-color: $btn-secondary-bg-darken;
+    }
+
+    &[disabled],
+    &.pseudo-class-disabled {
+        background-color: $btn-secondary-bg-disabled;
+        border-color: $btn-secondary-bg-disabled;
+        cursor: default;
+    }
+}
+
+.btn-tertiary {
+    /*@include button-variant($btn-tertiary-color, $btn-tertiary-bg, $btn-tertiary-border);*/
+    color: $btn-tertiary-color;
+    background: $btn-tertiary-bg;
+    border-color: $btn-tertiary-border;
+  
+    &:hover, 
+    &:focus,
+    &.pseudo-class-hover {
+        color: $btn-tertiary-color;
+        background-color: $btn-tertiary-bg-darken;
+        border-color: $btn-tertiary-bg-darken;
+    }
+
+    &[disabled],
+    &.pseudo-class-disabled {
+        background-color: $btn-tertiary-bg-disabled;
+        border-color: $btn-tertiary-bg-disabled;
+        cursor: initial;
+    }
+}
+
+.btn-quaternary {
+    /*@include button-variant($btn-tertiary-color, $btn-tertiary-bg, $btn-tertiary-border);*/
+    color: #fff;
+    background: $btn-quaternary-bg;
+    border-color: $btn-quaternary-border;
+  
+    &:hover, 
+    &:focus,
+    &.pseudo-class-hover {
+        color: #fff;
+        background-color: $btn-quaternary-bg-darken;
+        border-color: $btn-quaternary-bg-darken;
+    }
+
+    &[disabled],
+    &.pseudo-class-disabled {
+        background-color: $btn-quaternary-bg-disabled;
+        border-color: $btn-quaternary-bg-disabled;
+        cursor: initial;
+    }
+}
+
+.btn-white {
+    color: $color-quaternary-1;
+    background: #fff;
+}
+
+// Remove all backgrounds
+.btn-outline-primary {
+    /*@include button-outline-variant($btn-primary-bg);*/
+    color: $btn-primary-border;
+    background: transparent;
+    border-color: $btn-primary-border;
+
+    &:hover, 
+    &:focus,
+    &.pseudo-class-hover {
+        color: #fff;
+        background-color: $btn-primary-bg;
+        border-color: $btn-primary-bg;
+    }
+    &[disabled],
+    &.pseudo-class-disabled {
+        color: $btn-primary-bg-disabled;
+        background: #fff;
+        border-color: $btn-primary-bg-disabled;
+        cursor: default;
+    }
+}
+
+.btn-outline-secondary {
+    /*@include button-outline-variant($btn-secondary-border);*/
+    color: $btn-secondary-border;
+    background: transparent;
+    border-color: $btn-secondary-border;
+
+    &:hover, 
+    &:focus,
+    &.pseudo-class-hover {
+        color: #fff;
+        background-color: $btn-secondary-bg;
+        border-color: $btn-secondary-border;
+    }
+
+    &[disabled],
+    &.pseudo-class-disabled {
+        color: $btn-secondary-bg-disabled;
+        background: #fff;
+        border-color: $btn-secondary-bg-disabled;
+        cursor: default;
+    }
+}
+
+.btn-outline-tertiary {
+    /*@include button-outline-variant($btn-tertiary-border);*/
+    color: $btn-tertiary-border;
+    background: transparent;
+    border-color: $btn-tertiary-border;
+
+    &:hover, 
+    &:focus,
+    &.pseudo-class-hover {
+        color: #fff;
+        background-color: $btn-tertiary-bg;
+        border-color: $btn-tertiary-border;
+    }
+
+    &[disabled],
+    &.pseudo-class-disabled {
+        color: $btn-tertiary-bg-disabled;
+        background: #fff;
+        border-color: $btn-tertiary-bg-disabled;
+        cursor: default;
+    }
+}
+
+.btn-circle {
+    padding-left: 11px;
+    padding-right: 11px;
+    text-align: center;
+
+    &.btn-sm { 
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    &.btn-lg { 
+        padding: 15px
+    }
+
+    [class*="fa-"] {
+        min-width: 1.5em; // make it the same width as the line height makes the height
+    }
+}
+
+.btn-icon {
+    background: none;
+    color: $color-quaternary-1;
+
+    &:hover, 
+    &:focus {
+        
+    }
+}
+
+.btn-sm {
+    @include fluid-type(12px,14px);
+    padding: 8px 30px 7px;
+}
+
+.btn-lg {
+    @include fluid-type(19px,22px);
+    padding: 18px 60px;
+}
+
+.btn-circle-with-text {
+    .layout-footer & {
+        white-space: nowrap;
+
+        .btn-circle {
+            @media (min-width: $large) and (max-width: 1550px) {
+                font-size: 12px;
+            }
+        }
+    }
+
+    .btn-circle + span {
+        display: inline-block;
+        margin-left: 7px;
+        color: $color-secondary-1;
+        font-family: $fontBold;
+        position: relative;
+        
+        .layout-footer & {
+            @include fluid-type(14px, 24px);
+            color: white;
+
+            &:before {
+                content: "";
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: #638425;
+                height: 2px;
+                transition-duration: 0.175s;
+                transition-timing-function: linear;
+            }
+    
+            &:hover,
+            &:focus {
+                &:before {
+                    height: 13px;
+                    background: rgba(99, 132, 37, 0.25);
+                }
+            }
+
+            @media (min-width: $large) and (max-width: 1550px) {
+                font-size: 14px;
+            }
+        }
+    }
+
+    &:hover, 
+    &:focus {
+        text-decoration: none;
+
+        .btn-secondary {
+            background-color: darken($color-secondary-1, 10%);
+            border-color: darken($color-secondary-1, 10%);
+        }
+
+        .btn-circle + span {
+            color: darken($color-secondary-1, 10%);
+
+            .layout-footer & {
+                color: white;
+            }
+        }
+    }
+}
+
+.button-container {
+    margin-bottom: 30px;
+}
+
+.btn-header-toggle {
+    background: $color-primary-1;
+    color: #fff;
+    border: none;
+    @include fluid-type(20px, 32px);
+    transition: 0.3s ease-out all;
+    cursor: pointer;
+
+    &:hover, 
+    &:focus {
+        background-color: darken($color-primary-1, 10%);
+    }
+
+    @include only($nav-available) {
+        height: $nav-height-available-unscrolled;
+        min-width: $nav-height-available-unscrolled;
+    }
+
+    @include only(x) {
+        height: calc(#{$nav-height-available-unscrolled} * 0.85);
+        min-width: calc(#{$nav-height-available-unscrolled} * 0.85);
+    }
+
+    @include only($nav-unavailable) {
+        height: $nav-height-unavailable-unscrolled;
+        min-width: $nav-height-unavailable-unscrolled;
+    }
+}
+
+.link-underlined {
+    font-family: $fontBold;
+    font-size: 14px;
+    line-height: 1.4em;
+    display: inline-block;
+    padding-bottom: 5px;
+    color: $color-primary-1;
+    text-decoration: none;
+    position: relative;
+
+    > span:not(.sr-only) {
+        z-index: 2;
+        position: relative;
+    }
+
+    &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: $color-secondary-1;
+        height: 2px;
+        transition-duration: 0.175s;
+        transition-timing-function: linear;
+    }
+
+    &:hover, 
+    &:focus {
+        text-decoration: none;
+
+        &:before {
+            height: 13px;
+            background: rgba($color-secondary-1, 0.25);
+        }
+    }
+
+    .bg-primary-1 & {
+        color: #fff;
+
+        &:before {
+            background: $color-quaternary-1;
+        }
+
+        &:hover, 
+        &:focus {
+            &:before { 
+                background: rgba($color-quaternary-1, 0.25);
+            }
+        }
+    }
+} 
